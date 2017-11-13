@@ -1,6 +1,7 @@
 package DAO;
 
 import Entities.Tournament;
+import Connection.ConnectionManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
