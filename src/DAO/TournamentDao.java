@@ -5,6 +5,7 @@ import Entities.Tournament;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.List;
 
 public class TournamentDao {
     private static TournamentDao INSTANCE;
@@ -38,5 +39,16 @@ public class TournamentDao {
             return false;
         }
         return true;
+    }
+
+    //возвращаем пользователю список турниров доступных для регистрации, не давать для регистрации те турниры где он уже зареген
+    public List<Tournament> getListOfActiveTournaments() {
+
+        return null;
+    }
+
+    //регистрирует пользователя на турнир,
+    public boolean registerOnTournament() {
+
     }
 }

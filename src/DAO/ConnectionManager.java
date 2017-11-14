@@ -3,9 +3,9 @@ package DAO;
 import java.sql.*;
 
 public class ConnectionManager {
-    private static final String URL = "jdbc:mysql://localhost:3306/forecasts";
+    private static final String URL = "jdbc:mysql://localhost:3306/forecasts?useSSL=false";
     private static final String USER = "root";
-    private static final String PASSWORD = "кщще";
+    private static final String PASSWORD = "root";
 
 //    private static Connection con;
 //    private static Statement stmt;
