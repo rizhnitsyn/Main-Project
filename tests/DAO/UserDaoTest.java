@@ -8,7 +8,7 @@ import org.junit.Test;
 import java.util.List;
 import java.util.Random;
 
-public class UserDaoImplTest {
+public class UserDaoTest {
 
     @Test
     public void testAddTournament() {

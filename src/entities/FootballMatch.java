@@ -9,7 +9,7 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
-@EqualsAndHashCode(exclude = {"tournament", "matchState", "matchType", "firstTeamResult", "secondTeamResult"})
+@EqualsAndHashCode(exclude = {"tournament", "matchState", "matchType", "firstTeamResult", "secondTeamResult", "forecasts"})
 public class FootballMatch {
     private Long id;
     private Integer firstTeamResult = null;
@@ -22,8 +22,7 @@ public class FootballMatch {
     private Tournament tournament;
     private Set<Forecast> forecasts  = new HashSet<>();
 
-    public FootballMatch(Long id, Date matchDateTime, int matchState, int matchType, int firstTeamId, int secondTeamId, Tournament tournament) {
-        this.id = id;
+    public FootballMatch(Date matchDateTime, int matchState, int matchType, int firstTeamId, int secondTeamId, Tournament tournament) {
         this.matchDateTime = matchDateTime;
         this.matchState = matchState;
         this.matchType = matchType;
@@ -32,9 +31,35 @@ public class FootballMatch {
         this.tournament = tournament;
     }
 
+    public FootballMatch(Long id, Date matchDateTime, int matchState, int matchType, int firstTeamId, int secondTeamId, Tournament tournament) {
+        this(matchDateTime, matchState, matchType, firstTeamId, secondTeamId, tournament);
+        this.id = id;
+    }
+
     public FootballMatch(Long id, Integer firstTeamResult, Integer secondTeamResult, Date matchDateTime, int matchState, int matchType, int firstTeamId, int secondTeamId, Tournament tournament) {
         this(id, matchDateTime, matchState, matchType, firstTeamId, secondTeamId, tournament);
         this.firstTeamResult = firstTeamResult;
         this.secondTeamResult = secondTeamResult;
+    }
+
+    public FootballMatch(Long id, Integer firstTeamResult, Integer secondTeamResult, Date matchDateTime, int matchState, int matchType, int firstTeamId, int secondTeamId) {
+        this.id = id;
+        this.firstTeamResult = firstTeamResult;
+        this.secondTeamResult = secondTeamResult;
+        this.matchDateTime = matchDateTime;
+        this.matchState = matchState;
+        this.matchType = matchType;
+        this.firstTeamId = firstTeamId;
+        this.secondTeamId = secondTeamId;
+    }
+
+
+
+
+
+
+
+    public void addForecast(Forecast forecast) {
+        forecasts.add(forecast);
     }
 }

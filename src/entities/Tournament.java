@@ -9,6 +9,7 @@ import java.util.Set;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(exclude = {"footballMatches", "users", "stateId"})
 public class Tournament {
     private Long id;

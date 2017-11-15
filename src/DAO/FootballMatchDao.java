@@ -8,5 +8,5 @@ public interface FootballMatchDao {
     boolean addMatch(FootballMatch footballMatch);
     boolean updateMatch(FootballMatch footballMatch);
     FootballMatch getMatchById(Long matchId);
-    List<FootballMatch> getListOfMatchs();
+    List<FootballMatch> getListOfMatches();
 }

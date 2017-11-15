@@ -16,6 +16,13 @@ public class Forecast {
     private User user;
     private FootballMatch footballMatch;
 
+    public Forecast(Long id, int firstTeamForecast, int secondTeamForecast, FootballMatch footballMatch) {
+        this.id = id;
+        this.firstTeamForecast = firstTeamForecast;
+        this.secondTeamForecast = secondTeamForecast;
+        this.footballMatch = footballMatch;
+    }
+
     public Forecast(Long id, int firstTeamForecast, int secondTeamForecast, User user) {
         this.id = id;
         this.firstTeamForecast = firstTeamForecast;

@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Random;
 
-public class TournamentDaoImplTest {
+public class TournamentDaoTest {
     @Test
     public void testAddTournament() throws ParseException, SQLException {
         TournamentDaoImpl tournamentDaoImpl = TournamentDaoImpl.getInstance();
@@ -24,7 +24,7 @@ public class TournamentDaoImplTest {
         Date parsedDate = formatter.parse("10/06/2018");
         java.sql.Date sqlDate = new java.sql.Date(parsedDate.getTime());
         boolean saved = tournamentDaoImpl.addTournament(new Tournament(String.valueOf(random.nextInt(1000000)),
-                 2L, sqlDate, 2L));
+                 2, sqlDate, 2));
         Assert.assertTrue(saved);
     }
 
@@ -43,11 +43,14 @@ public class TournamentDaoImplTest {
     public void testUpdateTournament()  {
         TournamentDaoImpl tournamentDaoImpl = TournamentDaoImpl.getInstance();
         Random random = new Random();
-        Tournament tournament = TournamentDaoImpl.getInstance().getTournamentById(2L);
-        tournament.setName("updated" + String.valueOf(random.nextInt(1000000)));
+        Tournament tournament = tournamentDaoImpl.getTournamentById(2L);
+        String name = String.valueOf(random.nextInt(1000000));
+        tournament.setName("updated" + name);
         boolean updated = tournamentDaoImpl.updateTournament(tournament);
+        Tournament newTournament = tournamentDaoImpl.getTournamentById(2L);
         Assert.assertNotNull(tournament);
         Assert.assertTrue(updated);
+        Assert.assertEquals("updated" + name, newTournament.getName());
     }
 
     @Test
