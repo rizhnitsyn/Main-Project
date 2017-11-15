@@ -31,7 +31,7 @@ CREATE TABLE `match_comments` (
   PRIMARY KEY (`comment_id`),
   KEY `MATCH_COMMENTS_fk0` (`match_id`),
   KEY `MATCH_COMMENTS_fk1` (`user_id`),
-  CONSTRAINT `MATCH_COMMENTS_fk0` FOREIGN KEY (`match_id`) REFERENCES `planned_matches` (`match_id`),
+  CONSTRAINT `MATCH_COMMENTS_fk0` FOREIGN KEY (`match_id`) REFERENCES matches (`match_id`),
   CONSTRAINT `MATCH_COMMENTS_fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;

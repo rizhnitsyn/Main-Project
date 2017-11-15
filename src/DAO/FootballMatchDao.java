@@ -1,18 +1,12 @@
 package DAO;
 
-public class FootballMatchDao {
-    private static FootballMatchDao INSTANCE;
+import entities.FootballMatch;
 
-    private FootballMatchDao() {}
+import java.util.List;
 
-    public static FootballMatchDao getInstance() {
-        if (INSTANCE == null) {
-            synchronized (FootballMatchDao.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new FootballMatchDao();
-                }
-            }
-        }
-        return INSTANCE;
-    }
+public interface FootballMatchDao {
+    boolean addMatch(FootballMatch footballMatch);
+    boolean updateMatch(FootballMatch footballMatch);
+    FootballMatch getMatchById(Long matchId);
+    List<FootballMatch> getListOfMatchs();
 }

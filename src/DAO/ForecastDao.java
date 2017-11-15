@@ -1,18 +1,12 @@
 package DAO;
 
-public class ForecastDao {
-    private static ForecastDao INSTANCE;
+import entities.Forecast;
 
-    private ForecastDao() {}
+import java.util.List;
 
-    public static ForecastDao getInstance() {
-        if (INSTANCE == null) {
-            synchronized (ForecastDao.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new ForecastDao();
-                }
-            }
-        }
-        return INSTANCE;
-    }
+public interface ForecastDao {
+    boolean addForecast(Forecast forecast);
+    boolean updateForecast(Forecast forecast);
+    Forecast getForecastById(Long tournamentId);
+    List<Forecast> getListOfForecasts();
 }

@@ -31,7 +31,7 @@ CREATE TABLE `forecasts` (
   PRIMARY KEY (`forecast_id`),
   UNIQUE KEY `unique_index` (`match_id`,`user_id`),
   KEY `FORECASTS_fk1` (`user_id`),
-  CONSTRAINT `FORECASTS_fk0` FOREIGN KEY (`match_id`) REFERENCES `planned_matches` (`match_id`),
+  CONSTRAINT `FORECASTS_fk0` FOREIGN KEY (`match_id`) REFERENCES matches (`match_id`),
   CONSTRAINT `FORECASTS_fk1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
